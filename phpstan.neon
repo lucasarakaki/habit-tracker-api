@@ -1,0 +1,39 @@
+includes:
+    - ./vendor/larastan/larastan/extension.neon
+
+parameters:
+    # Nível de análise (0 a 9, onde 0 é o mais básico e 9 é o mais rigoroso)
+    level: 5
+
+    # Diretórios para analisar
+    paths:
+        - app
+        - tests
+
+    # Diretórios para ignorar
+    excludePaths:
+        - app/Console/Kernel.php?
+        - app/Exceptions/Handler.php?
+        - app/Http/Middleware?
+        - app/Providers
+
+    universalObjectCratesClasses:
+        - Illuminate\Support\Facades\Facade
+
+    bootstrapFiles:
+        - %currentWorkingDirectory%/bootstrap/app.php
+
+    # Arquivos para ignorar
+    # excludeFiles:
+    #    - src/SomeLegacyFile.php
+
+    # Ignorar erros específicos (opcional)
+    # ignoreErrors:
+    #    - '#Call to an undefined method .*#'
+    #    - '#Access to an undefined property .*#'
+
+    # Configurações de memória (opcional)
+    # memoryLimit: '2G'
+
+    # Configurações de análise de tipos genéricos (opcional)
+    # genericObjectTypes: true
