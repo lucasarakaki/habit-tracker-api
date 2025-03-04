@@ -20,6 +20,7 @@ class Habit extends Model
      * @var list<string>
      */
     protected $fillable = [
+        'uuid',
         'user_id',
         'title',
     ];
