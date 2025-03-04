@@ -1,14 +1,16 @@
 includes:
     - ./vendor/larastan/larastan/extension.neon
+    - ./phpstan-baseline.neon
 
 parameters:
     # Nível de análise (0 a 9, onde 0 é o mais básico e 9 é o mais rigoroso)
-    level: 5
+    level: max
 
     # Diretórios para analisar
     paths:
         - app
         - tests
+        - database
 
     # Diretórios para ignorar
     excludePaths:
