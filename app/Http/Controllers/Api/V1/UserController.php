@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\V1\StoreUserRequest;
 use App\Http\Resources\Api\V1\UserResource;
 use App\Models\User;
 use App\Traits\HttpResponse;
@@ -29,9 +30,13 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): void
+    public function store(StoreUserRequest $request): array
     {
-        //
+        $data = $request->only('name', 'email', 'password', 'uuid');
+
+        $user = User::create($data);
+
+        return $this->success('success', 200, UserResource::make($user));
     }
 
     /**
