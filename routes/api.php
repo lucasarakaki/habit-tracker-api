@@ -15,4 +15,8 @@ Route::prefix('v1')->name('api.v1.')->group(function(): void {
         ->name('users.index');
     Route::get('/users/{user:uuid}', [UserController::class, 'show'])
         ->name('users.show');
+    Route::post('/habits', [HabitController::class, 'store'])
+        ->name('habits.store');
+    Route::post('/users', [UserController::class, 'store'])
+        ->name('users.store');
 });
