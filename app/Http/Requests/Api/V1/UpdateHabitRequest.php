@@ -13,7 +13,7 @@ class UpdateHabitRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class UpdateHabitRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => ['required', 'min:3', 'max:255', 'string'],
         ];
     }
 }
