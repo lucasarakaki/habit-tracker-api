@@ -23,4 +23,3 @@ yarn-error.log
 /.zed
 /composer.lock
 /package-lock.json
-/phpstan-baseline.neon
