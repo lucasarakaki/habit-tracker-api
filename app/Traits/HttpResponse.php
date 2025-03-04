@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Traits;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\MessageBag;
 
 trait HttpResponse
 {
@@ -17,7 +18,7 @@ trait HttpResponse
         ];
     }
 
-    public function error(string $message, string | int $status, array $errors, array $data = []): array
+    public function error(string $message, string | int $status, array | MessageBag $errors, array $data = []): array
     {
         return [
             'message' => $message,
