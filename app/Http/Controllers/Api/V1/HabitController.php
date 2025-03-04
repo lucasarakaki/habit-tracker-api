@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\V1\StoreHabitRequest;
 use App\Http\Resources\Api\V1\HabitResource;
 use App\Models\Habit;
 use App\Traits\HttpResponse;
@@ -29,9 +30,13 @@ class HabitController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): void
+    public function store(StoreHabitRequest $request): array
     {
-        //
+        $data = $request->only('title', 'uuid');
+
+        $habit = Habit::create(array_merge($data, ['user_id' => 1]));
+
+        return $this->success('success', 200, HabitResource::make($habit));
     }
 
     /**
