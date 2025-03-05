@@ -1,16 +1,16 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types = 1);
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\V1\StoreHabitRequest;
+use App\Http\Requests\Api\V1\UpdateHabitRequest;
+use App\Http\Resources\Api\V1\HabitResource;
 use App\Models\Habit;
 use App\Models\HabitLog;
 use App\Traits\HttpResponse;
-use App\Http\Controllers\Controller;
-use App\Http\Resources\Api\V1\HabitResource;
-use App\Http\Requests\Api\V1\StoreHabitRequest;
-use App\Http\Requests\Api\V1\UpdateHabitRequest;
 
 class HabitController extends Controller
 {
